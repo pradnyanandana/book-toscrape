@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 
 app.use(cors());
-app.use(express.static("build"));
+app.use(express.static("public"));
 app.use(cookieParser());
 
 app.use(express.json({ limit: "50mb" }));
@@ -19,17 +19,6 @@ app.post("/api/list", async (req, res) => {
         success: true,
         message: "Success post list",
         data: list,
-    });
-});
-
-app.post("/api/detail", async (req, res) => {
-    const data = req.body.data;
-    console.log(data);
-    // Other script
-    res.status(200).json({
-        success: true,
-        message: "Success post detail",
-        data: data,
     });
 });
 
